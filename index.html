@@ -24,6 +24,11 @@
             letter-spacing: -2px;
             line-height: 1;
         }
+        /* Ensure the iframe container removes its padding to prevent double-padding */
+        .form-iframe-container {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -101,26 +106,30 @@
     <section id="focus" class="py-20 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Where We Invest</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">We prioritize ventures that utilize technology and scalable models to tackle critical societal challenges, ensuring they are built on sustainability and local understanding.</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Targeting High-Impact Innovation</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">We prioritize ventures that utilize next-generation technology and scalable models to tackle critical societal challenges with local understanding.</p>
             </div>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <!-- New Tech Focus: AI, IoT, Software Dev -->
                 <div class="p-4 bg-white rounded-lg shadow-md">
-                    <span class="block text-4xl mb-2 text-blue-500">🧑‍⚕️</span>
-                    <p class="font-medium text-gray-700">Health & Security Tech</p>
+                    <span class="block text-4xl mb-2 text-indigo-600">🤖</span>
+                    <p class="font-medium text-gray-700">New Technology Development</p>
                 </div>
+                <!-- Sustainable Solutions Focus -->
                 <div class="p-4 bg-white rounded-lg shadow-md">
-                    <span class="block text-4xl mb-2 text-green-500">🌾</span>
-                    <p class="font-medium text-gray-700">Sustainable Agriculture</p>
+                    <span class="block text-4xl mb-2 text-green-600">🌍</span>
+                    <p class="font-medium text-gray-700">Sustainable Solutions</p>
                 </div>
+                <!-- Education & Skills Focus -->
                 <div class="p-4 bg-white rounded-lg shadow-md">
-                    <span class="block text-4xl mb-2 text-yellow-600">💡</span>
-                    <p class="font-medium text-gray-700">Renewable Energy</p>
+                    <span class="block text-4xl mb-2 text-orange-500">🎓</span>
+                    <p class="font-medium text-gray-700">Education & Skill Development</p>
                 </div>
+                <!-- Filipino Problems Focus -->
                 <div class="p-4 bg-white rounded-lg shadow-md">
-                    <span class="block text-4xl mb-2 text-purple-600">📚</span>
-                    <p class="font-medium text-gray-700">Education & Skills Development</p>
+                    <span class="block text-4xl mb-2 text-red-600">🇵🇭</span>
+                    <p class="font-medium text-gray-700">Solving Real World Problems</p>
                 </div>
             </div>
         </div>
@@ -137,41 +146,38 @@
                     </p>
                 </div>
 
-                <!-- Interest Form - Uses Formspree for backend processing -->
-                <div class="max-w-lg mx-auto bg-white p-8 rounded-xl shadow-2xl">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Express Your Interest</h3>
-                    <!--
-                        IMPORTANT: The action URL below MUST be replaced with your unique Formspree Endpoint.
-                        Formspree will capture this submission and forward it to your company's Gmail.
+                <!-- Interest Form - Uses Google Apps Script Web App for custom, styled, zero-limit submission with direct email -->
+                <div class="max-w-lg mx-auto bg-white p-2 rounded-xl shadow-2xl">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2 px-6 pt-4 text-center">Express Your Interest</h3>
+                    
+                    <!-- Data Privacy Clause -->
+                    <p class="text-xs text-gray-500 px-6 pb-4 text-center">
+                        **Data Privacy Clause:** By submitting this form, you acknowledge and agree that your data will be used solely for evaluating your inquiry and will not be shared with unauthorized third parties.
+                    </p>
+                    
+                    <!-- 
+                        INSTRUCTION: Deploy your Apps Script Web App (Code.gs & Form.html) and replace 
+                        "YOUR_APPS_SCRIPT_WEB_APP_URL_HERE" below with the resulting URL.
+                        (The old Google Form URL is left as a temporary placeholder).
                     -->
-                    <form action="YOUR_FORMSPREE_ENDPOINT_HERE" method="POST" class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                            <input type="text" name="name" id="name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500 transition duration-150">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email Address (To receive responses)</label>
-                            <input type="email" name="_replyto" id="email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500 transition duration-150">
-                        </div>
-                        <div>
-                            <label for="role" class="block text-sm font-medium text-gray-700">How would you like to contribute?</label>
-                            <select id="role" name="contribution_role" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500 transition duration-150 bg-white">
-                                <option value="" disabled selected>Select an option</option>
-                                <option value="Innovator/Startup Founder">Innovator / Startup Founder (Idea Submission)</option>
-                                <option value="Investor">Investor (Capital)</option>
-                                <option value="Expert/Mentor">Expert / Mentor (Crowdsourcing time/skills)</option>
-                                <option value="Government Liaison">Government Liaison/Partnership</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700">Your Vision / Message</label>
-                            <textarea id="message" name="message" rows="4" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500 transition duration-150"></textarea>
-                        </div>
-                        <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-xl text-base font-medium text-white bg-emerald-700 hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition duration-300 transform hover:scale-[1.01]">
-                            Submit Interest
-                        </button>
-                    </form>
+                    <div class="form-iframe-container" style="height: 600px; overflow: hidden;">
+                        <iframe 
+                            src="https://script.google.com/macros/s/AKfycbxGHS7eugJ2M5Y-ZNnuKNFfwHHMEvtoxOsyaFxxg_jnDcp0pz4Hcowa9LQNJSU7jYWN_g/exec"
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0" 
+                            marginheight="0" 
+                            marginwidth="0"
+                            class="rounded-xl"
+                            title="Interest Submission Form"
+                        >
+                            Loading Form...
+                        </iframe>
+                    </div>
+
+                    <p class="text-sm text-gray-500 px-6 pt-2 pb-4 text-center">
+                        We respect your privacy and confidentiality.
+                    </p>
                 </div>
             </div>
         </div>
@@ -199,16 +205,6 @@
                 });
             });
         });
-
-        // Basic form success message handling (since we cannot run server-side logic)
-        const form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', function() {
-                // In a static site, Formspree handles the redirect/success page.
-                // If you want a non-redirect success message, you'd use fetch, but for simplicity
-                // of pure HTML, we rely on Formspree's default thank-you page.
-            });
-        }
     </script>
 </body>
 </html>
