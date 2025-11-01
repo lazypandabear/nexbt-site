@@ -1,0 +1,4 @@
+name = "nexbt-site"
+main = ".vercel/output/static/_worker.js"
+compatibility_date = "2025-11-01"
+compatibility_flags = ["nodejs_compat"]
